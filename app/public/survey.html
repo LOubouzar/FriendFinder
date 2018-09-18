@@ -12,19 +12,33 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+
+
+    <style>
+        body {
+            /* Powered by trianglify.io */
+            background-image: url("trianglify green.png");
+            background-attachment: fixed;
+            width: 100%;
+        }
+    </style>
+
 </head>
 
+
+
 <body>
+
     <section class="hero is-small is-success is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <h1 class="title is-1">
-                    Friend Finder
+                    <i class="fas fa-users"></i>&nbsp;Friend Finder
                 </h1>
                 <span>
                     <h2 class="subtitle is-5">
-                        <p>Answer a few basic questions.</p>
-                        <p>Then find your new friend with the greatest compatibility</p>
+                        <p>Answer a few basic questions...</p>
+                        <p>Then find your new best friend!</p>
                     </h2>
             </div>
         </div>
@@ -208,8 +222,9 @@
                 <br>
                 <br>
 
-                <button type="submit" class="button is-success is-bold" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
-                    Submit</button>
+                <button type="submit" class="button is-success is-bold" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;
+                    Submit
+                </button>
             </div>
         </div>
     </div>
@@ -221,20 +236,60 @@
                 <p class="modal-card-title">Modal title</p>
             </header>
             <h2 id="match-name"></h2>
-            <img id="match-img" src="#.imagelink" alt="">
+            <img id="match-img" src="" alt="">
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
 
-    <hr>
+    <br>
 
     <footer class="footer ">
         <div class="container has-text-centered ">
             <p>
-                <a href="/api/friends">API Friends List</a> | <a href="https://github.com/loubouzar/FriendFinder">GitHub</a>
+                <a href="/api/friends"><i class="fas fa-info"></i>&nbsp;API Friends List</a> | <a href="https://github.com/loubouzar/FriendFinder"><i
+                        class="fab fa-github"></i>&nbsp;GitHub</a>
             </p>
         </div>
     </footer>
+
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            var form = true;
+
+            if ($("#name").val() === "" || $("#photo").val() === "") { form = false; }
+            else if ($("#q1").val() === "" || $("#q2").val() === "" || $("#q3").val() === "" || $("#q4").val() === "" || $("#q5").val() === "" || $("#q6").val() === "" || $("#q7").val() === "" || $("#q8").val() === "" || $("#q9").val() === "" || $("#q10").val() === "" ||
+                { form : true });
+
+            if (form === true) {
+                var userInput = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        $("#q1").val(),
+                        $("#q2").val(),
+                        $("#q3").val(),
+                        $("#q4").val(),
+                        $("#q5").val(),
+                        $("#q6").val(),
+                        $("#q7").val(),
+                        $("#q8").val(),
+                        $("#q9").val(),
+                        $("#q10").val(),
+                    ]
+                };
+
+                $.post("/api/friends", userInput, function (data) {
+                    $("#match-name").text(data.name);
+                    $("#match-img").attr("src", data.photo);
+                    $("#modalResults").modal("toggle");
+                });
+            } else {
+                alert("Your questionnaire is incomplete! Please review and re-submit.");
+            }
+        });
+    </script>
 
 </body>
 
