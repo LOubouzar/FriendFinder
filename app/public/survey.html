@@ -253,15 +253,33 @@
     </footer>
 
     <script type="text/javascript">
-        $("#submit").on("click", function (event) {
-            event.preventDefault();
 
+    //on submit button 
+        $("#submit").on("click", function (event) {
+
+
+            event.preventDefault();
+            // console.log()
+            
+            //empty variable for the form as way to check to see if the user has entered everything completely and correctly.
             var form = true;
 
-            if ($("#name").val() === "" || $("#photo").val() === "") { form = false; }
-            else if ($("#q1").val() === "" || $("#q2").val() === "" || $("#q3").val() === "" || $("#q4").val() === "" || $("#q5").val() === "" || $("#q6").val() === "" || $("#q7").val() === "" || $("#q8").val() === "" || $("#q9").val() === "" || $("#q10").val() === "" ||
-                { form : true });
-
+            if ($("#name").val() === "" || $("#photo").val() === "") {
+                form = false;
+            } else if ($("#q1").val() === "" ||
+                $("#q2").val() === "" ||
+                $("#q3").val() === "" ||
+                $("#q4").val() === "" || 
+                $("#q5").val() === "" || 
+                $("#q6").val() === "" || 
+                $("#q7").val() === "" || 
+                $("#q8").val() === "" || 
+                $("#q9").val() === "" || 
+                $("#q10").val() === ""){
+                 form = true;
+            };
+            
+            //and if the user had entered everything in completion then trim and get values from the scores and store within the variable userInput
             if (form === true) {
                 var userInput = {
                     name: $("#name").val().trim(),
@@ -279,7 +297,7 @@
                         $("#q10").val(),
                     ]
                 };
-
+            //Post request to API friends to store the UserInput variable as JSON data. Then append the match to the modal.
                 $.post("/api/friends", userInput, function (data) {
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
