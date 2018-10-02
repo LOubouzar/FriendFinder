@@ -35,7 +35,7 @@
                 <h1 class="title is-1">
                     <i class="fas fa-users"></i>&nbsp;Friend Finder
                 </h1>
-                <span>
+                <span></span>
                     <h2 class="subtitle is-5">
                         <p>Answer a few basic questions...</p>
                         <p>Then find your new best friend!</p>
@@ -66,8 +66,8 @@
                 <h3><strong>Question 1</strong></h3>
                 <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
                 <div class="control">
-                    <div class="select" id="q1">
-                        <select>
+                    <div class="select">
+                        <select id="q1">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -81,8 +81,8 @@
                 <h3><strong>Question 2</strong></h3>
                 <h4>Generally speaking, you rely more on your experience than your imagination.</h4>
                 <div class="control">
-                    <div class="select" id="q2">
-                        <select>
+                    <div class="select" >
+                        <select id="q2">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -97,8 +97,8 @@
                 <h3><strong>Question 3</strong></h3>
                 <h4>You find it easy to stay relaxed and focused even when there is some pressure.</h4>
                 <div class="control">
-                    <div class="select" id="q3">
-                        <select>
+                    <div class="select" >
+                        <select id="q3">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -113,8 +113,8 @@
                 <h3><strong>Question 4</strong></h3>
                 <h4>You rarely do something just out of sheer curiosity.</h4>
                 <div class="control">
-                    <div class="select" id="q4">
-                        <select>
+                    <div class="select">
+                        <select id="q4">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -129,8 +129,8 @@
                 <h3><strong>Question 5</strong></h3>
                 <h4>People can rarely upset you.</h4>
                 <div class="control">
-                    <div class="select" id="q5">
-                        <select>
+                    <div class="select">
+                        <select id="q5">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -145,8 +145,8 @@
                 <h3><strong>Question 6</strong></h3>
                 <h4>It is often difficult for you to relate to other people’s feelings.</h4>
                 <div class="control">
-                    <div class="select" id="q6">
-                        <select>
+                    <div class="select" >
+                        <select id="q6">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -161,8 +161,8 @@
                 <h3><strong>Question 7</strong></h3>
                 <h4>In a discussion, truth should be more important than people’s sensitivities.</h4>
                 <div class="control">
-                    <div class="select" id="q7">
-                        <select>
+                    <div class="select" >
+                        <select id="q7">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -176,8 +176,8 @@
                 <h3><strong>Question 8</strong></h3>
                 <h4>You rarely get carried away by fantasies and ideas.</h4>
                 <div class="control">
-                    <div class="select" id="q8">
-                        <select>
+                    <div class="select" >
+                        <select id="q8">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -193,8 +193,8 @@
                     or not.
                 </h4>
                 <div class="control">
-                    <div class="select" id="q9">
-                        <select>
+                    <div class="select">
+                        <select id="q9">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -208,8 +208,8 @@
                 <h3><strong>Question 10</strong></h3>
                 <h4>You feel more energetic after spending time with a group of people.</h4>
                 <div class="control">
-                    <div class="select" id="q10">
-                        <select>
+                    <div class="select">
+                        <select id="q10">
                             <option value=""></option>
                             <option value="1">1 (Strongly Disagree)</option>
                             <option value="2">2</option>
@@ -229,7 +229,7 @@
         </div>
     </div>
 
-    <div class="modal" id="modalResults">
+    <!-- <div class="modal" id="modalResults">
         <div class="modal-background"></div>
         <div class="modal-content">
             <header class="modal-card-head">
@@ -239,7 +239,7 @@
             <img id="match-img" src="" alt="">
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+    </div> -->
 
     <br>
 
@@ -262,25 +262,27 @@
             // console.log()
             
             //empty variable for the form as way to check to see if the user has entered everything completely and correctly.
-            var form = true;
+            // var form = true;
 
-            if ($("#name").val() === "" || $("#photo").val() === "") {
-                form = false;
-            } else if ($("#q1").val() === "" ||
-                $("#q2").val() === "" ||
-                $("#q3").val() === "" ||
-                $("#q4").val() === "" || 
-                $("#q5").val() === "" || 
-                $("#q6").val() === "" || 
-                $("#q7").val() === "" || 
-                $("#q8").val() === "" || 
-                $("#q9").val() === "" || 
-                $("#q10").val() === ""){
-                 form = true;
-            };
+            // if ($("#name").val() === "" || $("#photo").val() === "") {
+            //     form = false;
+            //     alert("Your questionnaire is incomplete! Please review and re-submit.");
+            // } else if ($("#q1").val() === "" ||
+            //     $("#q2").val() === "" ||
+            //     // $("#q3").val() === "" ||
+            //     // $("#q4").val() === "" || 
+            //     // $("#q5").val() === "" || 
+            //     // $("#q6").val() === "" || 
+            //     // $("#q7").val() === "" || 
+            //     // $("#q8").val() === "" || 
+            //     // $("#q9").val() === "" || 
+            //     // $("#q10").val() === ""
+            // ){
+            //      form = true;
+            // };
             
             //and if the user had entered everything in completion then trim and get values from the scores and store within the variable userInput
-            if (form === true) {
+            // if (form === true) {
                 var userInput = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
@@ -296,16 +298,17 @@
                         $("#q9").val(),
                         $("#q10").val(),
                     ]
+                
                 };
+                // console.log("UserInput:",userInput.scores);
             //Post request to API friends to store the UserInput variable as JSON data. Then append the match to the modal.
                 $.post("/api/friends", userInput, function (data) {
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
-                    $("#modalResults").modal("toggle");
+                    console.log(data);
+                    // $("#modalResults").modal("toggle");
                 });
-            } else {
-                alert("Your questionnaire is incomplete! Please review and re-submit.");
-            }
+            // };
         });
     </script>
 
